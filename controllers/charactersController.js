@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-/* - - - MODEL - - -  */
-const data = require("../models/data.model");
-
 router.get("/", (req, res) => {
   res.send(data);
 });

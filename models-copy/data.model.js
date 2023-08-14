@@ -81,7 +81,8 @@ module.exports = [
  * "A victor must speak not of the current state of the world, but of how it should rightfully be."
  * "Distance only has meaning in a fight between equals."
  * "No matter what may happen… As long as you walk by my side… There shall be no enemy that can stand before us."
- * -x- -x- -x- -x- -x- -x- -x- -x- -x- -x- NARUTO
+ *
+ *  -x- -x- -x- -x- -x- -x- -x- -x- -x- -x- NARUTO
  *
  * - - - - - - - - NARUTO UZUMAKI - - - - - - - -
  * "Believe It."
