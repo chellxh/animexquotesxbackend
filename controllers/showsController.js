@@ -1,11 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-import { getAllShows } from "../queries/showQueries";
+const { getAllShows } = require("../queries/showQueries");
 
 router.get("/", async (req, res) => {
   const getShows = await getAllShows();
-  return getShows;
+
+  if (Array.isArray(getShows)) {
+    return res.json(getShows);
+  } else {
+    return res.status(500).json({ error: "Server Error. Please try again." });
+  }
 });
 
 module.exports = router;

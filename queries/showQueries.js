@@ -1,6 +1,12 @@
+const db = require("../db/dbConfig");
+
 const getAllShows = async () => {
-  let allShows = await db.any("SELECT * FROM shows");
-  return allShows;
+  try {
+    const allShows = await db.any("SELECT * FROM shows");
+    return allShows;
+  } catch (e) {
+    return e;
+  }
 };
 
 module.exports = {
