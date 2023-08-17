@@ -1,8 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send(data);
+const { getAllCharacters } = require("../queries/characterQueries");
+
+router.get("/", async (req, res) => {
+  const getCharacters = await getAllCharacters();
+
+  if (Array.isArray(getCharacters)) {
+    return res.json(getCharacters);
+  } else {
+    return res.status(500).json({ error: "Server Error. Please try again." });
+  }
 });
 
 router.get("/:id", (req, res) => {

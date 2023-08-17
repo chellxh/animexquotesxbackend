@@ -8,8 +8,8 @@ const showsController = require("./controllers/showsController");
 
 /* - - - ROUTES - - - */
 app.use("/", indexController);
-app.use("/characters", charactersController);
 app.use("/shows", showsController);
+app.use("/characters", charactersController);
 
 // 404 PAGE
 app.get("*", (req, res) => {

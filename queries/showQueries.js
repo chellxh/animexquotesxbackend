@@ -9,6 +9,16 @@ const getAllShows = async () => {
   }
 };
 
+const showById = async (id) => {
+  try {
+    const show = await db.any(`SELECT * FROM shows WHERE id = $1`, id);
+    return show;
+  } catch (e) {
+    return e;
+  }
+};
+
 module.exports = {
   getAllShows,
+  showById,
 };

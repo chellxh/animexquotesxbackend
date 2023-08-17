@@ -38,3 +38,25 @@ INSERT INTO characters (show_id, name, status, power_lvl, image) VALUES
 (9, 'Inuyasha', 'Half Demon', 8, 'pic'),
 (10, 'Batman', 'Hero', 9, 'pic');
 
+INSERT INTO quotes (character_id, show_id, quote) VALUES 
+(1, 1, 'Don''t break anyone''s heart, they only have one. Break their bones, they have 206.'),
+(2, 1, 'The difference in ability, what about it? Do you think I should give up just because you''re stronger than me?'),
+(3, 1, 'In three days, I will make this boy stronger than you.'),
+(4, 1, 'I am... Zangetsu!'),
+(5, 2, 'I don''t quit...I don''t run, I never go back on my word. That''s my ninja way!'),
+(6, 2, 'To know what is right and choose to ignore it is the act of a coward.'),
+(7, 2, 'If that''s how it is, I''ll just have to sever that bond!'),
+(8, 2, 'It is not wise to judge others based on your own preconceptions and by their appearances.'),
+(9, 3, 'Nothing changed! You haven''t changed one bit, DAMNIT! You''re still as useless as you ever were! Nothing changed!'),
+(10, 3, 'This is just my opinion, but when it comes to teaching somebody discipline... I believe pain is the most effective way!'),
+(11, 4, 'Love is the most twisted curse of all.'),
+(12, 4, 'People who are smart don''t really go around saying that themselves.'),
+(13, 5, 'Not killing people is really hard. Clean living is tough.'),
+(14, 5, 'I never imagined how frustrating weakness could be.'),
+(15, 6, 'I guess name-calling is your only attack because you''re too weak to challenge me any other way.'),
+(16, 6, 'Kakarot…I leave the rest to you'),
+(17, 7, 'Insolent Schoolboy! It''s a skin condition.'),
+(18, 7, 'But I need tacos! I need them or I will explode, that happens to me sometimes!'),
+(20, 9, 'Can it be that I''m afraid, or is it merely I know not my own limit?'),
+(21, 10, 'I''m Batman!');
+

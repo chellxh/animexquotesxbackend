@@ -24,7 +24,7 @@ CREATE TABLE characters (
     power_lvl INT DEFAULT 5,
     CHECK (power_lvl > 0 AND power_lvl <= 10),
     image TEXT,
-    quote TEXT NOT NULL
+    quote TEXT 
     
 );
 
