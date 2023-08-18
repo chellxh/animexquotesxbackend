@@ -45,7 +45,19 @@ const getCharacterFromShowById = async (showId, characterId) => {
   }
 };
 
-const createCharacter = async (showId, data) => {
+const createCharacter = async (data) => {
+  try {
+    const newCharacter = await db.one(
+      "INSERT INTO characters (name, status, power_lvl, image, show_id) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      [data.name, data.status, data.power_lvl, data.image, data.show_id]
+    );
+    return newCharacter;
+  } catch (e) {
+    return e;
+  }
+};
+
+const createCharacterFromShow = async (showId, data) => {
   try {
     const newCharacter = await db.one(
       "INSERT INTO characters (name, status, power_lvl, image, show_id) VALUES ($1, $2, $3, $4, $5) RETURNING *",
@@ -85,6 +97,7 @@ module.exports = {
   getAllCharacters,
   getCharacterById,
   createCharacter,
+  createCharacterFromShow,
   deleteCharacterById,
   updateCharacterById,
   allCharacterByShow,

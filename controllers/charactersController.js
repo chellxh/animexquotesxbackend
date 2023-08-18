@@ -1,17 +1,25 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true });
 
+const quotesController = require("./quotesController");
+
 const {
   getAllCharacters,
   getCharacterById,
   createCharacter,
+  createCharacterFromShow,
   deleteCharacterById,
   updateCharacterById,
   getCharacterFromShowById,
   allCharacterByShow,
 } = require("../queries/characterQueries");
 
-const { validateCharacterName } = require("../validations/validateInput");
+const {
+  validateCharacterName,
+  validateImage,
+} = require("../validations/validateInput");
+
+router.use("/:characterId/quotes", quotesController);
 
 router.get("/", async (req, res) => {
   const getCharacters = await getAllCharacters();
@@ -23,7 +31,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", validateCharacterName, async (req, res) => {
+router.post("/", validateCharacterName, validateImage, async (req, res) => {
   const newCharacter = await createCharacter(req.body);
   return res.json(newCharacter);
 });
@@ -42,42 +50,32 @@ router.get("/list", async (req, res) => {
   }
 });
 
-router.get("/list", async (req, res) => {
+router.post("/list", validateCharacterName, validateImage, async (req, res) => {
   const { showId } = req.params;
-  const allCharactersInShow = await allCharacterByShow(showId);
-  if (allCharactersInShow.length === 0) {
-    return res.status(404).json({
-      Error: "GET request unsuccessful",
-      message:
-        "Characters Not Found! Please check the show id you have entered and try again.",
-    });
-  } else {
-    return res.json(allCharactersInShow);
-  }
-});
-
-router.post("/list", validateCharacterName, async (req, res) => {
-  const { showId } = req.params;
-  console.log(showId);
-  const newCharacter = await createCharacter(showId, req.body);
+  const newCharacter = await createCharacterFromShow(showId, req.body);
   return res.json(newCharacter);
 });
 
-router.put("/list/:id", validateCharacterName, async (req, res) => {
-  const { id } = req.params;
+router.put(
+  "/list/:id",
+  validateCharacterName,
+  validateImage,
+  async (req, res) => {
+    const { id } = req.params;
 
-  const updatedCharacter = await updateCharacterById(id, req.body);
+    const updatedCharacter = await updateCharacterById(id, req.body);
 
-  if (updatedCharacter.length === 0) {
-    return res.status(404).json({
-      Error: "PUT request unsuccessful.",
-      message:
-        "Character Not Found! Please try again or enter a different character id.",
-    });
-  } else {
-    return res.json(updatedCharacter[0]);
+    if (updatedCharacter.length === 0) {
+      return res.status(404).json({
+        Error: "PUT request unsuccessful.",
+        message:
+          "Character Not Found! Please try again or enter a different character id.",
+      });
+    } else {
+      return res.json(updatedCharacter[0]);
+    }
   }
-});
+);
 
 router.get("/list/:id", async (req, res) => {
   const { showId, id } = req.params;
@@ -140,7 +138,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", validateCharacterName, async (req, res) => {
+router.put("/:id", validateCharacterName, validateImage, async (req, res) => {
   const { id } = req.params;
   const updatedCharacter = await updateCharacterById(id, req.body);
 

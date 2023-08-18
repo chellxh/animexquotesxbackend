@@ -65,7 +65,7 @@ const getQuotesFromCharacterById = async (characterId, quoteId) => {
   }
 };
 
-const createQuote = async (showId, data) => {
+const createQuote = async (data) => {
   try {
     const newQuote = await db.one(
       "INSERT INTO quotes (character_id, show_id, quote) VALUES ($1, $2, $3) RETURNING *",
@@ -76,6 +76,31 @@ const createQuote = async (showId, data) => {
     return e;
   }
 };
+
+const createQuoteFromShow = async (showId, data) => {
+  try {
+    const newQuote = await db.one(
+      "INSERT INTO quotes (character_id, show_id, quote) VALUES ($1, $2, $3) RETURNING *",
+      [data.character_id, showId, data.quote]
+    );
+    return newQuote;
+  } catch (e) {
+    return e;
+  }
+};
+
+const createQuoteFromCharacter = async (characterId, data) => {
+  try {
+    const newQuote = await db.one(
+      "INSERT INTO quotes (character_id, show_id, quote) VALUES ($1, $2, $3) RETURNING *",
+      [characterId, show_id, data.quote]
+    );
+    return newQuote;
+  } catch (e) {
+    return e;
+  }
+};
+
 const deleteQuoteById = async (id) => {
   try {
     const deletedQuote = await db.any(
@@ -109,6 +134,8 @@ module.exports = {
   getQuotesFromShowById,
   getQuotesFromCharacterById,
   createQuote,
+  createQuoteFromShow,
+  createQuoteFromCharacter,
   deleteQuoteById,
   updateQuoteById,
 };
