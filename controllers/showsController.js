@@ -7,9 +7,10 @@ router.use("/:showId/quotes", quotesController);
 
 const {
   getAllShows,
-  showById,
+  getShowById,
   createShow,
-  deleteShow,
+  deleteShowById,
+  updateShowById,
 } = require("../queries/showQueries");
 
 const {
@@ -30,11 +31,12 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
 
-  const show = await showById(id);
+  const show = await getShowById(id);
 
   if (show.length === 0) {
     return res.status(404).json({
-      Error: "Show Not Found! Please try again or enter a different show id.",
+      Error: "GET request unsuccessful",
+      message: "Show Not Found! Please try again or enter a different show id.",
     });
   } else {
     return res.json(show[0]);
@@ -43,21 +45,35 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", validateShowTitle, validateImage, async (req, res) => {
   const createdShow = await createShow(req.body);
-
-  console.log(createdShow, req.body);
-  res.json(createdShow);
+  return res.json(createdShow);
 });
 
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  const deletedShow = await deleteShow(id);
+  const deletedShow = await deleteShowById(id);
 
   if (deletedShow.length === 0) {
     return res.status(404).json({
-      error: "Show Not Found! Delete request cancelled. Please try again.",
+      Error: "DELETE request unsuccessful.",
+      message: "Show Not Found! Please try again or enter a different show id.",
     });
   } else {
     return res.json(deletedShow[0]);
+  }
+});
+
+router.put("/:id", validateShowTitle, validateImage, async (req, res) => {
+  const { id } = req.params;
+  const updatedShow = await updateShowById(id, req.body);
+
+  console.log(updatedShow);
+  if (updatedShow.length === 0) {
+    return res.status(404).json({
+      Error: "PUT request unsuccessful.",
+      message: "Show Not Found! Please try again or enter a different show id.",
+    });
+  } else {
+    return res.json(updatedShow[0]);
   }
 });
 

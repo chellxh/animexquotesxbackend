@@ -20,9 +20,10 @@ app.use("/characters", charactersController);
 
 // 404 PAGE
 app.get("*", (req, res) => {
-  return res
-    .status(404)
-    .json("Error: Page Not Found. Please check and try again.");
+  return res.status(404).json({
+    Error: "GET request unsuccessful.",
+    message: "Page Not Found! Please try again.",
+  });
 });
 
 module.exports = app;

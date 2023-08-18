@@ -9,7 +9,7 @@ const getAllShows = async () => {
   }
 };
 
-const showById = async (id) => {
+const getShowById = async (id) => {
   try {
     const show = await db.any(`SELECT * FROM shows WHERE id = $1`, id);
     return show;
@@ -30,7 +30,7 @@ const createShow = async (data) => {
   }
 };
 
-const deleteShow = async (id) => {
+const deleteShowById = async (id) => {
   try {
     const deletedShow = await db.any(
       `DELETE FROM shows WHERE id = $1 RETURNING *`,
@@ -42,9 +42,29 @@ const deleteShow = async (id) => {
   }
 };
 
+const updateShowById = async (id, show) => {
+  try {
+    const updatedShow = await db.any(
+      "UPDATE shows SET title = $1, image = $2, category = $3, release_date = $4, rating = $5 WHERE id = $6 RETURNING *",
+      [
+        show.title,
+        show.image,
+        show.category,
+        show.release_date,
+        show.rating,
+        id,
+      ]
+    );
+    return updatedShow;
+  } catch (e) {
+    return e;
+  }
+};
+
 module.exports = {
   getAllShows,
-  showById,
+  getShowById,
   createShow,
-  deleteShow,
+  deleteShowById,
+  updateShowById,
 };
