@@ -1,31 +1,45 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
-const { getAllCharacters } = require("../queries/characterQueries");
+const {
+  getAllCharacters,
+  allCharacterByShow,
+  getCharacterById,
+} = require("../queries/characterQueries");
 
 router.get("/", async (req, res) => {
   const getCharacters = await getAllCharacters();
 
-  if (Array.isArray(getCharacters)) {
-    return res.json(getCharacters);
+  if (!Array.isArray(getCharacters)) {
+    return res.status(500).json({ Error: "Server Error. Please try again." });
   } else {
-    return res.status(500).json({ error: "Server Error. Please try again." });
+    return res.json(getCharacters);
   }
 });
 
-router.get("/:id", (req, res) => {
-  let { id } = req.params;
-  let characterById = null;
-
-  data.forEach((character) => {
-    if (character.id === id) {
-      characterById = character;
-    }
-  });
-  if (Object.keys(characterById).length === 0) {
-    res.send("Sorry, Character not found!");
+router.get("/list", async (req, res) => {
+  const { showId } = req.params;
+  const allCharactersInShow = await allCharacterByShow(showId);
+  if (!allCharactersInShow) {
+    return res.status(500).json({ Error: "Server Error. Please try again." });
   } else {
-    res.send(characterById);
+    return res.json(allCharactersInShow);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  const character = await getCharacterById(id);
+
+  if (character.length === 0) {
+    return res.status(404).json({
+      Error: "GET request unsuccessful",
+      message:
+        "Character Not Found! Please try again or enter a different character id.",
+    });
+  } else {
+    return res.json(character[0]);
   }
 });
 

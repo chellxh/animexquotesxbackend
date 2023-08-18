@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 const quotesController = require("./quotesController");
+const charactersController = require("./charactersController");
 
+router.use("/:showId/characters", charactersController);
 router.use("/:showId/quotes", quotesController);
 
 const {
@@ -22,7 +24,7 @@ router.get("/", async (req, res) => {
   const getShows = await getAllShows();
 
   if (!Array.isArray(getShows)) {
-    return res.status(500).json({ error: "Server Error. Please try again." });
+    return res.status(500).json({ Error: "Server Error. Please try again." });
   } else {
     return res.json(getShows);
   }
