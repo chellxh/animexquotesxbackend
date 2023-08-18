@@ -12,11 +12,13 @@ app.use(morgan("dev"));
 const indexController = require("./controllers/indexController");
 const charactersController = require("./controllers/charactersController");
 const showsController = require("./controllers/showsController");
+const quotesController = require("./controllers/quotesController");
 
 /* - - - ROUTES - - - */
 app.use("/", indexController);
 app.use("/shows", showsController);
 app.use("/characters", charactersController);
+app.use("/quotes", quotesController);
 
 // 404 PAGE
 app.get("*", (req, res) => {

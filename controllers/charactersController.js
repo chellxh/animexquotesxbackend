@@ -11,6 +11,8 @@ const {
   allCharacterByShow,
 } = require("../queries/characterQueries");
 
+const { validateCharacterName } = require("../validations/validateInput");
+
 router.get("/", async (req, res) => {
   const getCharacters = await getAllCharacters();
 
@@ -21,7 +23,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", validateCharacterName, async (req, res) => {
   const newCharacter = await createCharacter(req.body);
   return res.json(newCharacter);
 });
@@ -54,14 +56,14 @@ router.get("/list", async (req, res) => {
   }
 });
 
-router.post("/list", async (req, res) => {
+router.post("/list", validateCharacterName, async (req, res) => {
   const { showId } = req.params;
   console.log(showId);
   const newCharacter = await createCharacter(showId, req.body);
   return res.json(newCharacter);
 });
 
-router.put("/list/:id", async (req, res) => {
+router.put("/list/:id", validateCharacterName, async (req, res) => {
   const { id } = req.params;
 
   const updatedCharacter = await updateCharacterById(id, req.body);
@@ -138,7 +140,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", validateCharacterName, async (req, res) => {
   const { id } = req.params;
   const updatedCharacter = await updateCharacterById(id, req.body);
 
