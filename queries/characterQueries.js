@@ -33,6 +33,15 @@ const getCharacterById = async (id) => {
   }
 };
 
+const getCharacterFromShowById = async (showId, characterId) => {
+    try {
+        const showCharacter = await db.any(`SELECT show_id, name, status, power_lvl, image FROM shows JOIN characters ON shows.id = characters.show_id WHERE shows.id = $1 AND characters.id = $2`, [showId, characterId])
+        return showCharacter;
+    } catch (e) {
+        return e;
+    }
+}
+
 const createCharacter = async (data) => {
   try {
     const newCharacter = await db.one(
@@ -49,4 +58,5 @@ module.exports = {
   getAllCharacters,
   allCharacterByShow,
   getCharacterById,
+  getCharacterFromShowById,
 };
