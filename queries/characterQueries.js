@@ -45,11 +45,11 @@ const getCharacterFromShowById = async (showId, characterId) => {
   }
 };
 
-const createCharacter = async (data) => {
+const createCharacter = async (showId, data) => {
   try {
     const newCharacter = await db.one(
-      "INSERT INTO characters (name, status, power_lvl, image) VALUES ($1, $2, $3, $4) RETURNING *",
-      [data.name, data.status, data.power_lvl, data.image]
+      "INSERT INTO characters (name, status, power_lvl, image, show_id) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      [data.name, data.status, data.power_lvl, data.image, showId]
     );
     return newCharacter;
   } catch (e) {
@@ -70,16 +70,10 @@ const deleteCharacterById = async (id) => {
 
 const updateCharacterById = async (id, character) => {
   try {
+    let { show_id, name, status, power_lvl, image } = character;
     const updatedCharacter = await db.any(
       "UPDATE characters SET show_id = $1, name = $2, status = $3, power_lvl = $4, image = $5 WHERE id = $6 RETURNING *",
-      [
-        character.show_id,
-        character.name,
-        character.status,
-        character.power_lvl,
-        character.image,
-        id,
-      ]
+      [show_id, name, status, power_lvl, image, id]
     );
     return updatedCharacter;
   } catch (e) {
