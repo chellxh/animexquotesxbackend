@@ -34,21 +34,54 @@ const getCharacterById = async (id) => {
 };
 
 const getCharacterFromShowById = async (showId, characterId) => {
-    try {
-        const showCharacter = await db.any(`SELECT show_id, name, status, power_lvl, image FROM shows JOIN characters ON shows.id = characters.show_id WHERE shows.id = $1 AND characters.id = $2`, [showId, characterId])
-        return showCharacter;
-    } catch (e) {
-        return e;
-    }
-}
+  try {
+    const showCharacter = await db.any(
+      `SELECT show_id, name, status, power_lvl, characters.image FROM shows JOIN characters ON shows.id = characters.show_id WHERE shows.id = $1 AND characters.id = $2`,
+      [showId, characterId]
+    );
+    return showCharacter;
+  } catch (e) {
+    return e;
+  }
+};
 
 const createCharacter = async (data) => {
   try {
     const newCharacter = await db.one(
-      "INSERT INTO characters (title, image, category, release_date, rating) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-      [data.title, data.image, data.category, data.release_date, data.rating]
+      "INSERT INTO characters (name, status, power_lvl, image) VALUES ($1, $2, $3, $4) RETURNING *",
+      [data.name, data.status, data.power_lvl, data.image]
     );
-    return newShow;
+    return newCharacter;
+  } catch (e) {
+    return e;
+  }
+};
+const deleteCharacterById = async (id) => {
+  try {
+    const deletedCharacter = await db.any(
+      `DELETE FROM characters WHERE id = $1 RETURNING *`,
+      id
+    );
+    return deletedCharacter;
+  } catch (e) {
+    return e;
+  }
+};
+
+const updateCharacterById = async (id, character) => {
+  try {
+    const updatedCharacter = await db.any(
+      "UPDATE characters SET show_id = $1, name = $2, status = $3, power_lvl = $4, image = $5 WHERE id = $6 RETURNING *",
+      [
+        character.show_id,
+        character.name,
+        character.status,
+        character.power_lvl,
+        character.image,
+        id,
+      ]
+    );
+    return updatedCharacter;
   } catch (e) {
     return e;
   }
@@ -56,7 +89,10 @@ const createCharacter = async (data) => {
 
 module.exports = {
   getAllCharacters,
-  allCharacterByShow,
   getCharacterById,
+  createCharacter,
+  deleteCharacterById,
+  updateCharacterById,
+  allCharacterByShow,
   getCharacterFromShowById,
 };
