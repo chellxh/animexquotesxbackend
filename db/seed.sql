@@ -3,16 +3,16 @@
 INSERT INTO 
     shows (title, image, category, release_date, rating) 
 VALUES
-('Bleach', 'assets/bleach.webp', 'anime', '2009-09-09', 5),
-('Naruto', 'assets/naruto.jpg', 'anime', '2005-09-10', 5),
-('Attack On Titan', 'assets/aot.webp', 'anime', '2013-09-28', 5),
-('Jujutsu Kaisen', 'assets/jujutsukaisen.jpg', 'anime', '2020-10-03', 4),
-('Hunter x Hunter', 'assets/hunterxhunter.jpg', 'anime', '2016-04-17', 4),
-('Dragon Ball Super', 'assets/dbs.jpg', 'anime', '2015-07-05', 5),
-('Invader Zim', 'assets/invaderZim.webp', 'animation', '2001-03-30', 5),
-('Blippi Wonders', 'assets/BlippiWonders.jpg', 'education', '2021-09-21', 4),
-('Inuyasha', 'assets/Inuyasha.jpeg', 'anime', '2000-10-16', 5),
-('The Batman', 'assets/TheBatman.jpg', 'animation', '2004-09-11', 5)
+('Bleach', 'https://upload.wikimedia.org/wikipedia/en/7/72/Bleachanime.png', 'anime', '2009-09-09', 5),
+('Naruto', 'https://www.crunchyroll.com/imgsrv/display/thumbnail/480x720/catalog/crunchyroll/8532171bec0d05bfe45769a330fbab82.jpe', 'anime', '2005-09-10', 5),
+('Attack On Titan', 'https://flxt.tmsimg.com/assets/p10701949_b_v9_ah.jpg', 'anime', '2013-09-28', 5),
+('Jujutsu Kaisen', 'https://m.media-amazon.com/images/M/MV5BMTMwMDM4N2EtOTJiYy00OTQ0LThlZDYtYWUwOWFlY2IxZGVjXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg', 'anime', '2020-10-03', 4),
+('Hunter x Hunter', 'https://m.media-amazon.com/images/M/MV5BNGM0YTk3MWEtN2JlZC00ZmZmLWIwMDktZTMxZGE5Zjc2MGExXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg', 'anime', '2016-04-17', 4),
+('Dragon Ball Super', 'https://m.media-amazon.com/images/M/MV5BY2I2MzI1ODYtMWRlOS00MzdhLWEyOWEtYWJhNmFiZTIxMGJhXkEyXkFqcGdeQXVyMTExNDQ2MTI@._V1_FMjpg_UX1000_.jpg', 'anime', '2015-07-05', 5),
+('Invader Zim', 'https://m.media-amazon.com/images/M/MV5BOTZjZWM2OGUtOGFjMC00NjEzLWJjNjktNzA1MTZlZWQzZGE1XkEyXkFqcGdeQXVyODA4OTIyMzY@._V1_QL75_UX190_CR0,2,190,281_.jpg', 'animation', '2001-03-30', 5),
+('Blippi Wonders', 'https://m.media-amazon.com/images/M/MV5BMjRiYzIyOTEtMmM5ZS00MDVkLWE2NzctOTcwYmE4YTg4YTEyXkEyXkFqcGdeQXVyMjQxMDkyNzE@._V1_.jpg', 'education', '2021-09-21', 4),
+('Inuyasha', 'https://m.media-amazon.com/images/M/MV5BMGNmMWI4MGUtYmU0ZS00ZDkxLTgzMTAtZDU4YmQ1MDM3Y2IyXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg', 'anime', '2000-10-16', 5),
+('The Batman', 'https://image.tmdb.org/t/p/w500/3w7koeOR2x71XYMJDGpygxYtScI.jpg', 'animation', '2004-09-11', 5)
 ;
 
 INSERT INTO characters (show_id, name, status, power_lvl, image) VALUES 
