@@ -1,54 +1,54 @@
-const { v4: uuidv4 } = require("uuid");
+// const { v4: uuidv4 } = require("uuid");
 
-module.exports = [
-  {
-    id: uuidv4(),
-    name: "Ichigo Kurosaki",
-    show: "Bleach",
-    quote:
-      "Don't break anyone's heart, they only have one. Break their bones, they have 206.",
-  },
-  {
-    id: uuidv4(),
-    name: "Hollow Ichigo",
-    show: "Bleach",
-    quote: "I am... Zangetsu!",
-  },
-  {
-    id: uuidv4(),
-    name: "Kisuke Urahara",
-    show: "Bleach",
-    quote:
-      "There's a lot of products that you can buy with money...but my love is the only limited product that only you can have.",
-  },
-  {
-    id: uuidv4(),
-    name: "Sosuke Aizen",
-    show: "Bleach",
-    quote:
-      "The betrayal you can see is trivial. What is truly frightening and much more lethal is the betrayal that you don't see.",
-  },
-  {
-    id: uuidv4(),
-    name: "Madara Uchiha",
-    show: "Naruto",
-    quote: "Be strong enough to be someone who even the demons would fear.",
-  },
-  {
-    id: uuidv4(),
-    name: "Kakashi Hatake",
-    show: "Naruto",
-    quote:
-      "To know what is right and choose to ignore it is the act of a coward.",
-  },
-  {
-    id: uuidv4(),
-    name: "Naruto Uzumaki",
-    show: "Naruto",
-    quote:
-      "I don't quit...I don't run, I never go back on my word. That's my ninja way.",
-  },
-];
+// module.exports = [
+//   {
+//     id: uuidv4(),
+//     name: "Ichigo Kurosaki",
+//     show: "Bleach",
+//     quote:
+//       "Don't break anyone's heart, they only have one. Break their bones, they have 206.",
+//   },
+//   {
+//     id: uuidv4(),
+//     name: "Hollow Ichigo",
+//     show: "Bleach",
+//     quote: "I am... Zangetsu!",
+//   },
+//   {
+//     id: uuidv4(),
+//     name: "Kisuke Urahara",
+//     show: "Bleach",
+//     quote:
+//       "There's a lot of products that you can buy with money...but my love is the only limited product that only you can have.",
+//   },
+//   {
+//     id: uuidv4(),
+//     name: "Sosuke Aizen",
+//     show: "Bleach",
+//     quote:
+//       "The betrayal you can see is trivial. What is truly frightening and much more lethal is the betrayal that you don't see.",
+//   },
+//   {
+//     id: uuidv4(),
+//     name: "Madara Uchiha",
+//     show: "Naruto",
+//     quote: "Be strong enough to be someone who even the demons would fear.",
+//   },
+//   {
+//     id: uuidv4(),
+//     name: "Kakashi Hatake",
+//     show: "Naruto",
+//     quote:
+//       "To know what is right and choose to ignore it is the act of a coward.",
+//   },
+//   {
+//     id: uuidv4(),
+//     name: "Naruto Uzumaki",
+//     show: "Naruto",
+//     quote:
+//       "I don't quit...I don't run, I never go back on my word. That's my ninja way.",
+//   },
+// ];
 
 /** - - - QUOTES SHELF - - -
  * -x- -x- -x- -x- -x- -x- -x- -x- -x- -x- BLEACH
