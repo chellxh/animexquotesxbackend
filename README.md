@@ -15,8 +15,9 @@ You can make get requests to this API using:
 - /characters/id
 - /shows
 - /shows/id
+- /quotes
 
 ### Links
 
-Backend [onRender](https://iamine.onrender.com)
-Frontend [GitHub](https://github.com/chellxh/animexquotesxfrontend)
+- Backend [onRender](https://iamine.onrender.com)
+- Frontend [GitHub](https://github.com/chellxh/animexquotesxfrontend)
