@@ -3,6 +3,7 @@ DROP DATABASE IF EXISTS ianime;
 CREATE DATABASE ianime;
 
 \c ianime;
+DROP TABLE IF EXISTS shows;
 
 CREATE TABLE shows (
     id SERIAL PRIMARY KEY,
