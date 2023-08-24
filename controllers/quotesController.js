@@ -26,7 +26,6 @@ router.get("/", async (req, res) => {
 
 router.post("/", validateQuote, async (req, res) => {
   const newQuote = await createQuote(req.body);
-  console.log(newQuote);
   return res.json(newQuote);
 });
 
@@ -71,7 +70,7 @@ router.post("/characters-quotes", validateQuote, async (req, res) => {
     characterId,
     req.body
   );
-  console.log(newQuoteByCharacter);
+
   return res.json(newQuoteByCharacter);
 });
 
