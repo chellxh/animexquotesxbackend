@@ -24,7 +24,7 @@ INSERT INTO characters (show_id, name, status, power_lvl, image) VALUES
 (2, 'Kakashi Hatake', 'Jonin-Level Shinobi, Former Hokage', 9, 'https://media.tenor.com/_KsnH9YVT5QAAAAC/kakashi.gif'),
 (2, 'Sasuke Uchiha', 'Former Member of the Akatsuki', 10, 'https://media.tenor.com/e9tRTtV8vU0AAAAC/sasuke-naruto.gif'),
 (2, 'Itachi Uchiha', 'Former Captain of ANBU, Former Member of the Akatsuki, Hidden Leaf''s Martyr', 10, 'https://steamuserimages-a.akamaihd.net/ugc/156903851085964994/8419FCE240BD49DC66CD463271A200738AFBF266/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false'),
-(3, 'Eren Jaeger', 'Jaegerists, Former Member of the Survey Corps Special Operations Squad', 10, 'https://thumbs.gfycat.com/BiodegradableCanineFlea-size_restricted.gif'),
+(3, 'Eren Jaeger', 'Jaegerists, Former Member of the Survey Corps Special Operations Squad', 10, 'https://64.media.tumblr.com/e38a2295a59280ba4a278d6602904060/e69642369f6e7538-61/s500x750/d95c48e0a86de08034b6c564a7f1f031076e541b.gifv'),
 (3, 'Levi Ackerman', 'Captain of the Survey Corps Special Operations Squad', 10, 'https://gifdb.com/images/high/cool-captain-levi-ackerman-2r15qy70pntvwp4a.gif'),
 (4, 'Gojo Satoru', 'Special Grade Jujutsu Sorceror', 10, 'https://media.tenor.com/AUQrhGRWJ4EAAAAC/gojo-gojo-satoru.gif'),
 (4, 'Yuji Itadori', null, 8, 'https://media.tenor.com/f7uhDqZB6GAAAAAd/yuuji-itadori-itadori.gif'),
