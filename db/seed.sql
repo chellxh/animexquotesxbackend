@@ -9,7 +9,6 @@ VALUES
 ('Jujutsu Kaisen', 'https://m.media-amazon.com/images/M/MV5BMTMwMDM4N2EtOTJiYy00OTQ0LThlZDYtYWUwOWFlY2IxZGVjXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg', 'anime', '2020-10-03', 4),
 ('Hunter x Hunter', 'https://m.media-amazon.com/images/M/MV5BNGM0YTk3MWEtN2JlZC00ZmZmLWIwMDktZTMxZGE5Zjc2MGExXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg', 'anime', '2016-04-17', 4),
 ('Dragon Ball Super', 'https://m.media-amazon.com/images/M/MV5BY2I2MzI1ODYtMWRlOS00MzdhLWEyOWEtYWJhNmFiZTIxMGJhXkEyXkFqcGdeQXVyMTExNDQ2MTI@._V1_FMjpg_UX1000_.jpg', 'anime', '2015-07-05', 5),
-('Invader Zim', 'https://m.media-amazon.com/images/M/MV5BOTZjZWM2OGUtOGFjMC00NjEzLWJjNjktNzA1MTZlZWQzZGE1XkEyXkFqcGdeQXVyODA4OTIyMzY@._V1_QL75_UX190_CR0,2,190,281_.jpg', 'animation', '2001-03-30', 5),
 ('Blippi Wonders', 'https://m.media-amazon.com/images/M/MV5BMjRiYzIyOTEtMmM5ZS00MDVkLWE2NzctOTcwYmE4YTg4YTEyXkEyXkFqcGdeQXVyMjQxMDkyNzE@._V1_.jpg', 'education', '2021-09-21', 4),
 ('Inuyasha', 'https://m.media-amazon.com/images/M/MV5BMGNmMWI4MGUtYmU0ZS00ZDkxLTgzMTAtZDU4YmQ1MDM3Y2IyXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg', 'anime', '2000-10-16', 5),
 ('The Batman', 'https://image.tmdb.org/t/p/w500/3w7koeOR2x71XYMJDGpygxYtScI.jpg', 'animation', '2004-09-11', 5)
